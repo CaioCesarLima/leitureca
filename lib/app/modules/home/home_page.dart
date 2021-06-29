@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:leitureca/app/modules/home/saldo_home.dart';
-import 'package:leitureca/app/modules/home/shopping_home.dart';
+import 'package:leitureca/app/modules/home/saldo/saldo_home.dart';
+import 'package:leitureca/app/modules/shopping/shopping_home.dart';
 
 import 'package:leitureca/app/widgets/bottombar/bottom_bar.dart';
 import 'package:leitureca/app/widgets/bottombar/bottom_bar_controller.dart';
