@@ -71,8 +71,14 @@ class ItemCard extends StatelessWidget {
                         ),
                         Padding(
                             padding: EdgeInsets.all(10),
-                            child: Text("Título do Livro")),
-                        Text("10 Leiturecas")
+                            child: Text(
+                              "Título do Livro",
+                              style: TextStyle(fontSize: 20),
+                            )),
+                        Text(
+                          "10 Leiturecas",
+                          style: TextStyle(fontWeight: FontWeight.bold),
+                        )
                       ],
                     ),
                   ),
