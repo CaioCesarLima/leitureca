@@ -1,14 +1,23 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:leitureca/app/user_controller.dart';
 
 class SaldoHome extends StatelessWidget {
-  const SaldoHome({Key key}) : super(key: key);
+  SaldoHome({Key key}) : super(key: key);
+  
+  UserController userController = Get.find<UserController>();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: Text('Saldo'),
+        title: GetBuilder<UserController>(
+          init: Get.find<UserController>(),
+          builder: (_) {
+            return Text("${_.user.name}");
+          },
+        ),
       ),
       body: Column(
         children: [
@@ -30,19 +39,25 @@ class SaldoHome extends StatelessWidget {
                 SizedBox(
                   height: 10,
                 ),
-                Container(
-                  margin: EdgeInsets.symmetric(horizontal: 150),
-                  padding: EdgeInsets.all(15),
-                  decoration: BoxDecoration(
-                      color: Colors.deepPurple,
-                      borderRadius: BorderRadius.circular(15)),
-                  child: Text(
-                    '10 Leiturecas',
-                    style: TextStyle(
-                      color: Colors.white,
-                    ),
-                    textAlign: TextAlign.center,
-                  ),
+                GetBuilder<UserController>(
+                  init: userController,
+                  initState: (_) {},
+                  builder: (_) {
+                    return Container(
+                      margin: EdgeInsets.symmetric(horizontal: 150),
+                      padding: EdgeInsets.all(15),
+                      decoration: BoxDecoration(
+                          color: Colors.deepPurple,
+                          borderRadius: BorderRadius.circular(15)),
+                      child: Text(
+                        '${_.user.saldo} Leiturecas',
+                        style: TextStyle(
+                          color: Colors.white,
+                        ),
+                        textAlign: TextAlign.center,
+                      ),
+                    );
+                  },
                 )
               ],
             ),
