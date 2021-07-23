@@ -4,8 +4,8 @@ import 'package:get/get.dart';
 class BottomBarController extends GetxController {
   BottomBarController();
 
-  final _currentIndex = 1.obs;
-  PageController pageController = PageController(initialPage: 1);
+  final _currentIndex = 0.obs;
+  PageController pageController = PageController(initialPage: 0);
 
   void setCurrentIndex(int newIndex) {
     this._currentIndex.value = newIndex;
