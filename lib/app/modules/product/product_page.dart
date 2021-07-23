@@ -8,6 +8,7 @@ class ProductPage extends GetView<ProductController> {
   @override
   Widget build(BuildContext context) {
     final ProductController controller = ProductController();
+    controller.onReady();
     return Scaffold(
         appBar: AppBar(
           title: Text('Título do Livro'),

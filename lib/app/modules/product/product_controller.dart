@@ -1,8 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:leitureca/app/data/services/product_service.dart';
 
 class ProductController extends GetxController {
+  ProductService productService = ProductService();
   ProductController();
+
+  @override
+    void onReady() async{
+      // TODO: implement onReady
+      await productService.getAll();
+      super.onReady();
+    }
 
   void buyProduct() {
     Get.back();
