@@ -43,7 +43,7 @@ class ProductController extends GetxController {
         ParseResponse response = await purchase.save();
         if (response.success) {
           int newSaldo = userController.user.saldo - productModel.price; 
-          ParseObject userParse = ParseObject('User')
+          ParseObject userParse = ParseUser.forQuery()
           ..objectId = userID
           ..set('saldo', newSaldo);
 

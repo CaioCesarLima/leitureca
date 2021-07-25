@@ -20,11 +20,6 @@ void main() async {
     KEYPARSESERVERURL,
     clientKey: CLIENTKEY
   );
-  ParseObject user = await ParseObject('User')
-  ..objectId ='1S84qEyQ7x'
-  ..set('saldo', 5);
-
-  var response = await user.save();
 
   
   runApp(MyApp());
