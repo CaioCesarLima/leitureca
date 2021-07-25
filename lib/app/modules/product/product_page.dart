@@ -9,9 +9,10 @@ class ProductPage extends GetView<ProductController> {
   Widget build(BuildContext context) {
     final ProductController controller = ProductController();
     controller.onReady();
-    return Scaffold(
+    return Obx(()=>
+    controller.isLoading.value ? Center(child: CircularProgressIndicator()) : Scaffold(
         appBar: AppBar(
-          title: Text('Título do Livro'),
+          title: Text(controller.productModel.name),
           centerTitle: true,
         ),
         body: Column(
@@ -23,14 +24,14 @@ class ProductPage extends GetView<ProductController> {
             Container(
               height: 300,
               child: Image.network(
-                  "https://images-na.ssl-images-amazon.com/images/I/612QiXA+FyL.jpg"),
+                  controller.productModel.urlImage),
             ),
             Container(
               margin: EdgeInsets.all(24),
               child: Center(
                 child: Container(
                   child: Text(
-                    "Titulo do livro",
+                    controller.productModel.name,
                     style: TextStyle(color: Colors.black87, fontSize: 35),
                   ),
                 ),
@@ -42,7 +43,7 @@ class ProductPage extends GetView<ProductController> {
                 child: Container(
                   width: 500,
                   child: Text(
-                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis semper vitae nunc a pulvinar. Pellentesque a sagittis ipsum.",
+                    controller.productModel.description,
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       color: Colors.black87,
@@ -57,7 +58,7 @@ class ProductPage extends GetView<ProductController> {
               child: Center(
                 child: Container(
                   child: Text(
-                    "10 Leiturecas",
+                    "${controller.productModel.price} Leiturecas",
                     style: TextStyle(
                       color: Colors.black87,
                       fontWeight: FontWeight.bold,
@@ -108,6 +109,7 @@ class ProductPage extends GetView<ProductController> {
               ),
             )
           ],
-        ));
+        ))
+    );
   }
 }

@@ -25,7 +25,7 @@ class ShoppingHome extends StatelessWidget {
               itemCount: _.products.length,
               itemBuilder: (BuildContext context, int index) {
                 ProductModel product = _.products[index];
-                return ItemCard(id: product.id, name: product.name, price: product.price.toString(), urlImage: product.urlImage,);
+                return ItemCard(productModel: product,);
               },
             );
           },
@@ -36,12 +36,9 @@ class ShoppingHome extends StatelessWidget {
 }
 
 class ItemCard extends StatelessWidget {
-  final String urlImage;
-  final String name;
-  final String price;
-  final String id;
+  final ProductModel productModel;
   const ItemCard({
-    Key key, this.urlImage, this.name, this.price, this.id,
+    Key key, this.productModel, 
   }) : super(key: key);
 
   @override
@@ -77,7 +74,7 @@ class ItemCard extends StatelessWidget {
                     child: Column(
                       children: [
                         Image.network(
-                          urlImage,
+                          productModel.urlImage,
                           height: 150,
                         ),
                         SizedBox(
@@ -85,8 +82,8 @@ class ItemCard extends StatelessWidget {
                         ),
                         Padding(
                             padding: EdgeInsets.all(10),
-                            child: Text(name)),
-                        Text("$price Leiturecas")
+                            child: Text(productModel.name)),
+                        Text("${productModel.price} Leiturecas")
                       ],
                     ),
                   ),
@@ -101,7 +98,7 @@ class ItemCard extends StatelessWidget {
                         )),
                     child: TextButton(
                       onPressed: () {
-                        _.toProductPage(id);
+                        _.toProductPage(productModel);
                       },
                       child: Text(
                         "Comprar",

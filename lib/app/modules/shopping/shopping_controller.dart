@@ -19,8 +19,8 @@ class ShoppingController extends GetxController {
       super.onInit();
     }
 
-  void toProductPage(String id) {
-    Get.toNamed(Routes.PRODUCT);
+  void toProductPage(ProductModel productModel) {
+    Get.toNamed(Routes.PRODUCT, parameters: {'productId': productModel.id});
   }
 
   final _obj = ''.obs;
