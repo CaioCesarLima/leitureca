@@ -32,7 +32,7 @@ class MyApp extends StatelessWidget {
     Get.lazyPut<UserController>(() => UserController());
     Get.lazyPut<ShoppingController>(() => ShoppingController());
     return GetMaterialApp(
-      title: 'Flutter Demo',
+      title: 'Leiturecas',
       initialRoute: Routes.LOGIN,
       initialBinding: HomeBinding(),
       debugShowCheckedModeBanner: false,
