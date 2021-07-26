@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:leitureca/app/data/models/product_model.dart';
 import 'package:leitureca/app/modules/shopping/shopping_controller.dart';
 
 class ShoppingHome extends StatelessWidget {
@@ -14,12 +15,19 @@ class ShoppingHome extends StatelessWidget {
       ),
       body: Padding(
         padding: const EdgeInsets.all(24.0),
-        child: GridView.builder(
-          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 2, mainAxisSpacing: 24, crossAxisSpacing: 24),
-          itemCount: 10,
-          itemBuilder: (BuildContext context, int index) {
-            return ItemCard();
+        child: GetBuilder<ShoppingController>(
+          init: Get.find<ShoppingController>(),
+          builder: (_) {
+            return _.isloading ? Center(child: CircularProgressIndicator()) :
+            GridView.builder(
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2, mainAxisSpacing: 24, crossAxisSpacing: 24),
+              itemCount: _.products.length,
+              itemBuilder: (BuildContext context, int index) {
+                ProductModel product = _.products[index];
+                return ItemCard(productModel: product,);
+              },
+            );
           },
         ),
       ),
@@ -28,8 +36,9 @@ class ShoppingHome extends StatelessWidget {
 }
 
 class ItemCard extends StatelessWidget {
+  final ProductModel productModel;
   const ItemCard({
-    Key key,
+    Key key, this.productModel, 
   }) : super(key: key);
 
   @override
@@ -56,14 +65,16 @@ class ItemCard extends StatelessWidget {
                 color: Colors.white,
                 borderRadius: BorderRadius.all(Radius.circular(24))),
             child: Column(
+              
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
+                
                 Expanded(
                   child: Container(
                     child: Column(
                       children: [
                         Image.network(
-                          "https://images-na.ssl-images-amazon.com/images/I/612QiXA+FyL.jpg",
+                          productModel.urlImage,
                           height: 150,
                         ),
                         SizedBox(
@@ -71,8 +82,8 @@ class ItemCard extends StatelessWidget {
                         ),
                         Padding(
                             padding: EdgeInsets.all(10),
-                            child: Text("Título do Livro")),
-                        Text("10 Leiturecas")
+                            child: Text(productModel.name)),
+                        Text("${productModel.price} Leiturecas")
                       ],
                     ),
                   ),
@@ -87,7 +98,7 @@ class ItemCard extends StatelessWidget {
                         )),
                     child: TextButton(
                       onPressed: () {
-                        _.toProductPage("id");
+                        _.toProductPage(productModel);
                       },
                       child: Text(
                         "Comprar",

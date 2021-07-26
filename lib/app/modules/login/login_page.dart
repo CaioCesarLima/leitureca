@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
-import 'package:leitureca/app/data/services/login_service.dart';
 import 'package:leitureca/app/modules/login/login_controller.dart';
 
 class LoginPage extends GetView<LoginController> {
