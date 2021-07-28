@@ -1,20 +1,25 @@
 
+import 'package:leitureca/app/data/models/user_model.dart';
 import 'package:leitureca/app/data/services/login_service.dart';
 import 'package:parse_server_sdk/parse_server_sdk.dart';
 class UserProvider{
   
 
-  // Future<bool> islogged() async{
-  //   SharedPreferences prefs = await SharedPreferences.getInstance();
-  //   String token = prefs.getString('token');
-  //   if(token != null){
-  //     await LoginService().loginFromToken(token);
-  //     return true;
-  //   }else{
-  //     return false;
-  //   }
+  Future<UserModel> islogged() async{
+
+    ParseUser userlogged = await ParseUser.currentUser();
+
+    if(userlogged != null){
+      ParseResponse response = await ParseUser.getCurrentUserFromServer(userlogged.sessionToken);
+      if(response.success){
+        return UserModel.fromParse(response.result);
+      }else{
+        return Future.error(response.error);
+      }
+    }
+
     
-  // }
+  }
 
   // Future<bool> setUser(String token)async{
   //   SharedPreferences prefs = await SharedPreferences.getInstance();
