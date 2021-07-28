@@ -13,6 +13,7 @@ import 'package:leitureca/utils/parse_config.dart';
 import 'package:parse_server_sdk/parse_server_sdk.dart';
 
 import 'app/modules/home/home_page.dart';
+import 'app/widgets/adminBottombar/admin_bottom_bar_controller.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized(); 
@@ -31,6 +32,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Get.lazyPut<BottomBarController>(() => BottomBarController(), fenix: true);
+    Get.lazyPut<AdminBottomBarController>(() => AdminBottomBarController(), fenix: true);
     Get.lazyPut<UserController>(() => UserController(), fenix: true);
     Get.lazyPut<ShoppingController>(() => ShoppingController(), fenix: true);
     return GetMaterialApp(

@@ -24,9 +24,9 @@ class LoginPage extends GetView<LoginController> {
                         children: [   
                         Padding(
                       padding: const EdgeInsets.only(top: 24),
-                      child: SvgPicture.asset(
-                        'img/undraw_welcome_3gvl.svg',
-                        height: 150,
+                      child: Image.asset(
+                        'img/undraw_education_f8ru.png',
+                        height: 200,
                       ),
                     ),
                     Padding(

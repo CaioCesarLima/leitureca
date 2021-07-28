@@ -1,6 +1,5 @@
 
 import 'package:leitureca/app/data/models/user_model.dart';
-import 'package:leitureca/app/data/services/login_service.dart';
 import 'package:parse_server_sdk/parse_server_sdk.dart';
 class UserProvider{
   
@@ -17,6 +16,7 @@ class UserProvider{
         return Future.error(response.error);
       }
     }
+    return Future.error('Erro ao carregar usuário logado');
 
     
   }
