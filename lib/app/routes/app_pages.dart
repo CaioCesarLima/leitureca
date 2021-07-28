@@ -1,4 +1,6 @@
 import 'package:get/get.dart';
+import 'package:leitureca/app/modules/admin/home/admin_home_bindings.dart';
+import 'package:leitureca/app/modules/admin/home/admin_home_page.dart';
 import 'package:leitureca/app/modules/home/home_binding.dart';
 import 'package:leitureca/app/modules/home/home_page.dart';
 import 'package:leitureca/app/modules/login/login_bindings.dart';
@@ -17,6 +19,8 @@ abstract class AppPages {
       page: () => ProductPage(),
     ),
     GetPage(name: Routes.HOME, page: () => HomePage(), binding: HomeBinding(),),
-    GetPage(name: Routes.LOGIN, page: () => LoginPage(), binding: LoginBinding(),)
+    GetPage(name: Routes.LOGIN, page: () => LoginPage(), binding: LoginBinding(),),
+    
+    GetPage(name: Routes.ADMINHOME, page: () => AdminHomePage(), binding: AdminHomeBinding(),),
   ];
 }

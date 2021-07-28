@@ -13,18 +13,17 @@ SplashController();
     void onReady() {
       print('splash');
       checkUserLogged();  
-      Future.delayed(Duration(seconds: 2)).then((value) => {
-        Get.offNamed(Routes.LOGIN)
-      });
+      
       super.onReady();
     }
   void checkUserLogged()async{
-    UserModel islogged = await userProvider.islogged();
-    Get.find<UserController>().user = islogged;
-    if(islogged != null){
-      Get.offNamed(Routes.HOME);
-    } else{
-      Get.offNamed(Routes.LOGIN);
-    }
+    //UserModel islogged = await userProvider.islogged();
+    // Get.find<UserController>().user = islogged;
+    // if(islogged != null){
+    //   Get.offNamed(Routes.HOME);
+    // } else{
+    //   Get.offNamed(Routes.ADMINHOME);
+    // }
+    Get.offNamed(Routes.ADMINHOME);
   }
 }
