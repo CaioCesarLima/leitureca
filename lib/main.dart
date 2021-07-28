@@ -30,9 +30,9 @@ void main() async {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    Get.lazyPut<BottomBarController>(() => BottomBarController());
+    Get.lazyPut<BottomBarController>(() => BottomBarController(), fenix: true);
     Get.lazyPut<UserController>(() => UserController(), fenix: true);
-    Get.lazyPut<ShoppingController>(() => ShoppingController());
+    Get.lazyPut<ShoppingController>(() => ShoppingController(), fenix: true);
     return GetMaterialApp(
       title: 'Leiturecas',
       initialRoute: Routes.INITIAL,
