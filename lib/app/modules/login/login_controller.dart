@@ -2,9 +2,11 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:leitureca/app/data/models/user_model.dart';
+import 'package:leitureca/app/data/providers/user_provider.dart';
 import 'package:leitureca/app/data/services/login_service.dart';
 import 'package:leitureca/app/routes/app_pages.dart';
 import 'package:leitureca/app/user_controller.dart';
+import 'package:parse_server_sdk/parse_server_sdk.dart';
 
 class LoginController extends GetxController {
   final LoginService _service;
@@ -12,6 +14,12 @@ class LoginController extends GetxController {
   TextEditingController user = TextEditingController();
   TextEditingController senha = TextEditingController();
   GlobalKey<FormState> form = GlobalKey<FormState>();
+
+  @override
+  void onReady() async {
+    UserProvider().islogged();
+    super.onReady();
+  }
 
   String uservalidate() {
     if (user.text.trim().length < 4) {
@@ -28,29 +36,29 @@ class LoginController extends GetxController {
   }
 
   void login() async {
-    try {
-      UserModel userloged = await this
+    
+      ParseResponse response = await this
           ._service
           .login(user.text.trim().toString(), senha.text.trim());
       UserController userController = Get.find<UserController>();
-      if (userloged != null) {
-        userController.user = userloged;
+      if (response.success) {
+        print(ParseUser.currentUser());
+        userController.user = UserModel.fromParse(response.result);
         Get.offAndToNamed(Routes.HOME);
       } else {
-        snackbar();
+        snackbar(response.error.message);
       }
-    } catch (e) {
-    }
+    
   }
 
-  void snackbar() {
+  void snackbar(String mensagem) {
     Get.rawSnackbar(
       messageText: Center(
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              "Houve algum erro, tente novamente mais tarde",
+              mensagem,
               style: TextStyle(
                 color: Colors.deepPurple,
                 fontSize: 24,
