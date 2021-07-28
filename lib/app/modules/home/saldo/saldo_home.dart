@@ -12,6 +12,11 @@ class SaldoHome extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
+        actions: [
+          IconButton(icon: Icon(Icons.exit_to_app), onPressed: (){
+            userController.logout();
+          })
+        ],
         title: GetBuilder<UserController>(
           init: Get.find<UserController>(),
           builder: (_) {

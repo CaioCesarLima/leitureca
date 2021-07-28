@@ -2,14 +2,22 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:leitureca/app/data/models/product_model.dart';
 import 'package:leitureca/app/modules/shopping/shopping_controller.dart';
+import 'package:leitureca/app/user_controller.dart';
 
 class ShoppingHome extends StatelessWidget {
-  const ShoppingHome({Key key}) : super(key: key);
+  ShoppingHome({Key key}) : super(key: key);
+  UserController userController = Get.find<UserController>();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      
       appBar: AppBar(
+        actions: [
+          IconButton(icon: Icon(Icons.exit_to_app), onPressed: (){
+            userController.logout();
+          })
+        ],
         title: Text("Lojinha"),
         centerTitle: true,
       ),
