@@ -12,7 +12,7 @@ UserController();
 
   @override
     void onInit() async{
-      user = await UserProvider().islogged();
+      //user = await UserProvider().islogged();
       super.onInit();
     }
 
