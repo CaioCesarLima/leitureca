@@ -9,6 +9,8 @@ class ProductService {
     if(apiResponse.success){
       print(apiResponse.results);
       return (apiResponse.results.map((element) { return ProductModel.fromParse(element);})).toList();
+    }else{
+      return Future.error(apiResponse.error);
     }
 
   }
