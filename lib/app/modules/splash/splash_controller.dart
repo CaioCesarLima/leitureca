@@ -24,6 +24,6 @@ SplashController();
     // } else{
     //   Get.offNamed(Routes.ADMINHOME);
     // }
-    Get.offNamed(Routes.ADMINHOME);
+    Get.offNamed(Routes.LOGIN);
   }
 }

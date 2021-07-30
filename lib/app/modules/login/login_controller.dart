@@ -44,7 +44,12 @@ class LoginController extends GetxController {
       if (response.success) {
         print(ParseUser.currentUser());
         userController.user = UserModel.fromParse(response.result);
-        Get.offAndToNamed(Routes.HOME);
+        if(userController.user.isAdmin ){
+          Get.offAndToNamed(Routes.ADMINHOME);
+        }else{
+          Get.offAndToNamed(Routes.HOME);
+        }
+        
       } else {
         snackbar(response.error.message);
       }
