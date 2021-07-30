@@ -14,6 +14,7 @@ class LoginController extends GetxController {
   TextEditingController user = TextEditingController();
   TextEditingController senha = TextEditingController();
   GlobalKey<FormState> form = GlobalKey<FormState>();
+  RxBool obscurePassword = true.obs;
 
   @override
   void onReady() async {
@@ -28,6 +29,10 @@ class LoginController extends GetxController {
     return null;
   }
 
+  void changeObscurePassword(){
+    obscurePassword.value = !obscurePassword.value;
+    update();
+  }
   String passwordvalidate() {
     if (user.text.trim().length < 6) {
       return 'Sua senha precisa ter mais de 6 dígitos';
