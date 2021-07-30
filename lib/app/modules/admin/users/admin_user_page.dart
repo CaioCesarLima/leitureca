@@ -88,7 +88,7 @@ Widget ListTileUser(UserModel user) {
           ),
           trailing: GestureDetector(
             onTap: (){
-              Get.toNamed(Routes.Deposit);
+              Get.toNamed(Routes.Deposit, parameters: {'id': user.id, 'saldo': user.saldo.toString()});
             },
             child: Icon(
               Icons.attach_money_sharp,

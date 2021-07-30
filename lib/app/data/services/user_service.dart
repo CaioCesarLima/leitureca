@@ -17,4 +17,18 @@ class UserService{
     }
 
   }
+
+  Future<UserModel> getUSer(String id) async {
+    QueryBuilder<ParseUser> queryUsers =
+        QueryBuilder<ParseUser>(ParseUser.forQuery());
+        queryUsers.whereEqualTo('objectId', id);
+     var apiResponse = await queryUsers.query();
+
+    if(apiResponse.success){
+      print(apiResponse.results);
+      return UserModel.fromParse(apiResponse.result);
+    }else{
+      return Future.error(apiResponse.error);
+    }
+  }
 }
