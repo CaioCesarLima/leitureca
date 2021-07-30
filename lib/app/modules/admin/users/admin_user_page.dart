@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:leitureca/app/data/models/user_model.dart';
 import 'package:leitureca/app/modules/admin/users/admin_user_controller.dart';
+import 'package:leitureca/app/routes/app_pages.dart';
 import 'package:leitureca/app/user_controller.dart';
 
 class AdminUserPage extends GetView<AdminUserController> {
@@ -85,9 +86,14 @@ Widget ListTileUser(UserModel user) {
             Icons.edit,
             color: Colors.deepPurple,
           ),
-          trailing: Icon(
-            Icons.attach_money_sharp,
-            color: Colors.deepPurple,
+          trailing: GestureDetector(
+            onTap: (){
+              Get.toNamed(Routes.Deposit);
+            },
+            child: Icon(
+              Icons.attach_money_sharp,
+              color: Colors.deepPurple,
+            ),
           ),
           title: Text(user.name),
           subtitle: Text("Turma: "+user.turma),
