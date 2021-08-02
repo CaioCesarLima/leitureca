@@ -1,6 +1,7 @@
 import 'package:parse_server_sdk/parse_server_sdk.dart';
 
 class DepositService {
+  // ignore: missing_return
   Future<bool> realizarDeposito(String id, int valor) async {
     ParseObject user = ParseUser.forQuery()
     ..objectId = id

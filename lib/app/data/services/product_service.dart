@@ -15,6 +15,7 @@ class ProductService {
 
   }
 
+  // ignore: missing_return
   Future<ProductModel> getById(String id) async{
     ParseResponse apiResponse = await ParseObject('Product').getObject(id);
     if(apiResponse.success){

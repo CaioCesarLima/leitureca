@@ -13,7 +13,6 @@ AdminUserController();
   @override
     Future<void> onInit() async {
       
-      // TODO: implement onInit
       getUsers();
 
       super.onInit();

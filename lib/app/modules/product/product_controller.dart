@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:leitureca/app/data/models/product_model.dart';
-import 'package:leitureca/app/data/models/user_model.dart';
 import 'package:leitureca/app/data/services/product_service.dart';
 import 'package:leitureca/app/data/services/purchase_service.dart';
 import 'package:leitureca/app/user_controller.dart';
@@ -62,6 +61,7 @@ class ProductController extends GetxController {
 
           print(response.result);
           purchaseDone("Compra Realizada com Sucesso!");
+          userController.user.saldo = newSaldo;
           buyLoading.value = false;
         } else {
           print(response.error);

@@ -18,7 +18,6 @@ class AdminProductsController extends GetxController {
       print(e);
       isLoading.value = false;
     }
-    // TODO: implement onInit
     super.onInit();
   }
 

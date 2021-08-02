@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:leitureca/app/data/services/user_service.dart';
-import 'package:parse_server_sdk/parse_server_sdk.dart';
 
 class AdminNewUserController extends GetxController {
   UserService userService = UserService();
@@ -19,7 +18,6 @@ class AdminNewUserController extends GetxController {
 
   @override
   void onInit() async {
-    // TODO: implement onInit
     super.onInit();
   }
 

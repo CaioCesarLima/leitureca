@@ -11,7 +11,6 @@ class ShoppingController extends GetxController {
   bool isloading = false;
   @override
     void onInit() async{
-      // TODO: implement onInit
       isloading = true;
       products = await productService.getAll();
       isloading = false;

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:leitureca/app/modules/admin/users/admin_user_controller.dart';
 import 'package:leitureca/app/modules/admin/users/newUser/admin_newUser_controller.dart';
 
 class AdminNewUserPage extends GetView<AdminNewUserController> {

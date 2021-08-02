@@ -4,6 +4,7 @@ import 'package:leitureca/app/data/models/product_model.dart';
 import 'package:leitureca/app/modules/shopping/shopping_controller.dart';
 import 'package:leitureca/app/user_controller.dart';
 
+// ignore: must_be_immutable
 class ShoppingHome extends StatelessWidget {
   ShoppingHome({Key key}) : super(key: key);
   UserController userController = Get.find<UserController>();

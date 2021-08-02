@@ -4,7 +4,7 @@ class UserModel {
   final String id;
   final bool isAdmin;
   final String turma;
-  final int saldo;
+  int saldo;
   final String name;
   final String userName;
 

@@ -10,6 +10,7 @@ import 'package:leitureca/app/widgets/adminBottombar/admin_bottom_bar_controller
 
 
 
+// ignore: must_be_immutable
 class AdminHomePage extends GetView<AdminHomeController> {
   UserController userController = Get.find<UserController>();
   @override
