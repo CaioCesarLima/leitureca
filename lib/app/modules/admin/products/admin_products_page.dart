@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:leitureca/app/data/models/product_model.dart';
 import 'package:leitureca/app/modules/admin/products/admin_products_controller.dart';
+import 'package:leitureca/app/routes/app_pages.dart';
 import 'package:leitureca/app/user_controller.dart';
 
 // ignore: must_be_immutable
@@ -67,7 +68,7 @@ class AdminProductsPage extends GetView<AdminProductsController> {
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.add),
         onPressed: () {
-          print('novo usuário');
+          Get.toNamed(Routes.NEWPRODUCT);
         },
       ),
     );

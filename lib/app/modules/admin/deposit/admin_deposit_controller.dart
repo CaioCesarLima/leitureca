@@ -4,6 +4,7 @@ import 'package:leitureca/app/data/models/user_model.dart';
 import 'package:leitureca/app/data/services/deposit_service.dart';
 import 'package:leitureca/app/data/services/user_service.dart';
 import 'package:leitureca/app/modules/admin/users/admin_user_controller.dart';
+import 'package:leitureca/utils/parse_errors.dart';
 import 'package:parse_server_sdk/parse_server_sdk.dart';
 
 class AdminDepositController extends GetxController {
@@ -44,16 +45,9 @@ AdminDepositController();
       saldo = valor;
     }else{
       print(parseResponse.error);
-      Get.snackbar('Ops.', 'Houve algum problema no depósito, tente novamente mais tarde', snackPosition: SnackPosition.BOTTOM);
+      Get.snackbar('Ops.', ParseErrors.getDescription(parseResponse.error.code), snackPosition: SnackPosition.BOTTOM);
     }
     
-    // int valor = int.parse(valorDeposito.text)+saldo;
-    // var response = await depositService.realizarDeposito(id, valor);
-    // if(response){
-    //   Get.snackbar('Depósito realizado com sucesso', 'Saldo atual: $saldo', snackPosition: SnackPosition.BOTTOM);
-    // }else{
-    //   Get.snackbar('Ops.', 'Houve algum problema no depósito, tente novamente mais tarde', snackPosition: SnackPosition.BOTTOM);
-    // }
     isLoading.value = false;
 
   }

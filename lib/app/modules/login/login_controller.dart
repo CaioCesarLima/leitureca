@@ -5,6 +5,7 @@ import 'package:leitureca/app/data/models/user_model.dart';
 import 'package:leitureca/app/data/services/login_service.dart';
 import 'package:leitureca/app/routes/app_pages.dart';
 import 'package:leitureca/app/user_controller.dart';
+import 'package:leitureca/utils/parse_errors.dart';
 import 'package:parse_server_sdk/parse_server_sdk.dart';
 
 class LoginController extends GetxController {
@@ -55,7 +56,7 @@ class LoginController extends GetxController {
         }
         
       } else {
-        snackbar(response.error.message);
+        snackbar(ParseErrors.getDescription(response.error.code));
       }
     
   }
@@ -76,10 +77,7 @@ class LoginController extends GetxController {
             SizedBox(
               width: 10,
             ),
-            Icon(
-              Icons.check,
-              color: Colors.deepPurple,
-            )
+            
           ],
         ),
       ),

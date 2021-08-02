@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:leitureca/app/data/services/user_service.dart';
+import 'package:leitureca/utils/parse_errors.dart';
 
 class AdminNewUserController extends GetxController {
   UserService userService = UserService();
@@ -71,7 +72,7 @@ class AdminNewUserController extends GetxController {
         Get.snackbar('Feito!', 'Cadastro realizado com sucesso', snackPosition: SnackPosition.BOTTOM);
       }
     }catch(e){
-      Get.snackbar('Ops..', e.message, snackPosition: SnackPosition.BOTTOM);
+      Get.snackbar('Ops..', ParseErrors.getDescription(e.code), snackPosition: SnackPosition.BOTTOM);
     }finally{
       isLoading.value = false;
       update();

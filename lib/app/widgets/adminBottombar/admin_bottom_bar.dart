@@ -31,7 +31,7 @@ class AdminBottomNavigationbar extends StatelessWidget {
                   backgroundColor: Colors.red),
               BottomNavigationBarItem(
                   icon: Icon(Icons.money),
-                  label: "Depósitos",
+                  label: "Compras",
                   backgroundColor: Colors.red),
             ],
           );
