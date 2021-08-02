@@ -15,7 +15,8 @@ class ProductPage extends GetView<ProductController> {
           title: Text(controller.productModel.name),
           centerTitle: true,
         ),
-        body: Column(
+        body: SingleChildScrollView(
+          child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             SizedBox(
@@ -109,7 +110,8 @@ class ProductPage extends GetView<ProductController> {
               ),
             )
           ],
-        ))
+        ),
+        ),)
     );
   }
 }

@@ -55,7 +55,7 @@ class AdminUserPage extends GetView<AdminUserController> {
                             child: ListView.builder(
                               itemCount: _.users.length,
                               itemBuilder: (BuildContext context, index) {
-                                return ListTileUser(_.users[index]);
+                                return ListTileUser(_.users[index], _);
                               },
                             ),
                           ),
@@ -76,7 +76,7 @@ class AdminUserPage extends GetView<AdminUserController> {
   }
 }
 
-Widget ListTileUser(UserModel user) {
+Widget ListTileUser(UserModel user, AdminUserController _) {
   return Column(
     children: [
       Padding(
@@ -88,7 +88,7 @@ Widget ListTileUser(UserModel user) {
           ),
           trailing: GestureDetector(
             onTap: (){
-              Get.toNamed(Routes.Deposit, parameters: {'id': user.id, 'saldo': user.saldo.toString()});
+              Get.toNamed(Routes.Deposit, parameters: {'id': user.id, 'saldo': user.saldo.toString()}).then((value) => _.getUsers());
             },
             child: Icon(
               Icons.attach_money_sharp,
@@ -96,7 +96,7 @@ Widget ListTileUser(UserModel user) {
             ),
           ),
           title: Text(user.name),
-          subtitle: Text("Turma: "+user.turma),
+          subtitle: Text("Turma: "+user.turma + " - Saldo: "+ user.saldo.toString()),
         ),
       ),
       Divider(

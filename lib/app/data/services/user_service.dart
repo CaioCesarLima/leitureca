@@ -31,4 +31,19 @@ class UserService{
       return Future.error(apiResponse.error);
     }
   }
+
+  Future<bool> createUser(String userName, String password, String turma, String name, bool isAdmin) async{
+    ParseUser user =  ParseUser(userName, password, null)
+      ..set('isAdmin', isAdmin)
+      ..set('turma', turma)
+      ..set('name', name);
+
+      ParseResponse response = await user.create();
+
+      if(response.success){
+        return response.success;
+      }else{
+        return Future.error(response.error);
+      }
+  }
 }

@@ -7,4 +7,6 @@ abstract class Routes {
   static const LOGIN = '/login';
   static const ADMINHOME = '/admin-home';
   static const Deposit = '/admin-deposit';
+  static const NEWPRODUCT = '/new-product';
+  static const NEWUSER = '/new-user';
 }

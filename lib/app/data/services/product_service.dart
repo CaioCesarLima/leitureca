@@ -22,4 +22,20 @@ class ProductService {
       return ProductModel.fromParse(apiResponse.result);
     }
   }
+
+  Future<bool> createProduct(String name, String description, int price, int amount)async{
+    ParseObject newProduct = ParseObject('Product')
+    ..set('name', name)
+    ..set('price', price)
+    ..set('amount', amount)
+    ..set('description', description);
+
+    ParseResponse response = await newProduct.save();
+
+    if(response.success){
+      return true;
+    }else{
+      return Future.error(response.error);
+    }
+  }
 }
