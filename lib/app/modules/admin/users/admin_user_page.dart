@@ -70,7 +70,7 @@ class AdminUserPage extends GetView<AdminUserController> {
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.add),
         onPressed: () {
-          print('novo usuário');
+          Get.toNamed(Routes.NEWUSER);
         },
       ),
     );
