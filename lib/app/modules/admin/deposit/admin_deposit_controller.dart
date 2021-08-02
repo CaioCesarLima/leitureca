@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:leitureca/app/data/models/user_model.dart';
 import 'package:leitureca/app/data/services/deposit_service.dart';
 import 'package:leitureca/app/data/services/user_service.dart';
+import 'package:leitureca/app/modules/admin/users/admin_user_controller.dart';
 import 'package:parse_server_sdk/parse_server_sdk.dart';
 
 class AdminDepositController extends GetxController {
@@ -11,6 +12,7 @@ class AdminDepositController extends GetxController {
 
   GlobalKey<FormState> fomrKey = GlobalKey<FormState>();
   TextEditingController valorDeposito = TextEditingController();
+  AdminUserController adminUserController = Get.find<AdminUserController>();
 
 AdminDepositController();
   RxBool isLoading = false.obs;

@@ -3,6 +3,10 @@ import 'package:leitureca/app/modules/admin/deposit/admin_deposit_bindings.dart'
 import 'package:leitureca/app/modules/admin/deposit/admin_deposit_page.dart';
 import 'package:leitureca/app/modules/admin/home/admin_home_bindings.dart';
 import 'package:leitureca/app/modules/admin/home/admin_home_page.dart';
+import 'package:leitureca/app/modules/admin/products/new_products/admin_new_products_bindings.dart';
+import 'package:leitureca/app/modules/admin/products/new_products/admin_new_products_page.dart';
+import 'package:leitureca/app/modules/admin/users/newUser/admin_newUSer_bindings.dart';
+import 'package:leitureca/app/modules/admin/users/newUser/admin_newUser_page.dart';
 import 'package:leitureca/app/modules/home/home_binding.dart';
 import 'package:leitureca/app/modules/home/home_page.dart';
 import 'package:leitureca/app/modules/login/login_bindings.dart';
@@ -42,6 +46,16 @@ abstract class AppPages {
       name: Routes.Deposit,
       page: () => AdminDepositPage(),
       binding: AdminDepositBinding(),
-    )
+    ),
+    GetPage(
+      name: Routes.NEWPRODUCT,
+      page: () => AdminNewProductsPage(),
+      binding: AdminNewProductsBinding(),
+    ),
+    GetPage(
+      name: Routes.NEWUSER,
+      page: () => AdminNewUserPage(),
+      binding: AdminNewUserBinding(),
+    ),
   ];
 }
