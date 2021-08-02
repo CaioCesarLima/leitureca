@@ -1,4 +1,4 @@
-import 'package:leitureca/app/data/models/user_model.dart';
+
 import 'package:parse_server_sdk/parse_server_sdk.dart';
 
 class LoginService {

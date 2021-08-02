@@ -1,6 +1,5 @@
 import 'package:get/get.dart';
 import 'package:leitureca/app/data/models/user_model.dart';
-import 'package:leitureca/app/data/providers/user_provider.dart';
 import 'package:leitureca/app/routes/app_pages.dart';
 import 'package:parse_server_sdk/parse_server_sdk.dart';
 

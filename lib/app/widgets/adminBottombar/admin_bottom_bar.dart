@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:leitureca/app/widgets/bottombar/bottom_bar_controller.dart';
 
 import 'admin_bottom_bar_controller.dart';
 

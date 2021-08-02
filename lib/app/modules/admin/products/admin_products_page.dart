@@ -4,6 +4,7 @@ import 'package:leitureca/app/data/models/product_model.dart';
 import 'package:leitureca/app/modules/admin/products/admin_products_controller.dart';
 import 'package:leitureca/app/user_controller.dart';
 
+// ignore: must_be_immutable
 class AdminProductsPage extends GetView<AdminProductsController> {
   UserController userController = Get.find<UserController>();
   @override
@@ -73,6 +74,7 @@ class AdminProductsPage extends GetView<AdminProductsController> {
   }
 }
 
+// ignore: non_constant_identifier_names
 Widget ListTileUser(ProductModel product) {
   return Column(
     children: [

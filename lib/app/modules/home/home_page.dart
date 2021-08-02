@@ -10,7 +10,6 @@ import 'package:leitureca/app/widgets/bottombar/bottom_bar_controller.dart';
 import 'home_controller.dart';
 
 class HomePage extends GetView<HomeController> {
-  UserController userController = Get.find<UserController>();
   @override
   Widget build(BuildContext context) {
     return GetBuilder(
@@ -21,7 +20,13 @@ class HomePage extends GetView<HomeController> {
               controller: _.pageController,
               physics: NeverScrollableScrollPhysics(),
               children: [
-                SaldoHome(),
+                GetBuilder<UserController>(
+                  init: Get.find<UserController>(),
+                  initState: (_) {},
+                  builder: (_) {
+                    return SaldoHome();
+                  },
+                ),
                 ShoppingHome(),
               ],
             ),

@@ -2,7 +2,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:leitureca/app/data/models/user_model.dart';
-import 'package:leitureca/app/data/providers/user_provider.dart';
 import 'package:leitureca/app/data/services/login_service.dart';
 import 'package:leitureca/app/routes/app_pages.dart';
 import 'package:leitureca/app/user_controller.dart';
