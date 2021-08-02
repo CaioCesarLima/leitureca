@@ -42,15 +42,23 @@ class ProductController extends GetxController {
         ParseResponse response = await purchase.save();
         if (response.success) {
           int newSaldo = userController.user.saldo - productModel.price; 
-          ParseObject userParse = ParseUser.forQuery()
-          ..objectId = userID
-          ..set('saldo', newSaldo);
+          final ParseCloudFunction function = ParseCloudFunction('editUserProperty');
+          final Map<String, dynamic> params = <String, dynamic>{
+            'objectId': userID,
+            'newSaldo': newSaldo
+          };
+          final ParseResponse parseResponse =
+              await function.execute(parameters: params);
+          
+          // ParseObject userParse = ParseUser.forQuery()
+          // ..objectId = userID
+          // ..set('saldo', newSaldo);
 
-          ParseResponse userResponse = await userParse.save();
-            if(userResponse.success){
-              print(userResponse.result);
+          // ParseResponse userResponse = await userParse.save();
+            if(parseResponse.success){
+              print(parseResponse.result);
             }else{
-              print(userResponse.error);
+              print(parseResponse.error);
             }
 
           ParseObject productParse = ParseObject('Product')
