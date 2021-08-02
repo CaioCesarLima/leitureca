@@ -12,6 +12,14 @@ AdminUserController();
 
   @override
     Future<void> onInit() async {
+      
+      // TODO: implement onInit
+      getUsers();
+
+      super.onInit();
+    }
+
+    Future<void> getUsers() async {
       isLoading.value = true;
       try{
         users = await userService.getAllUsers();
@@ -21,9 +29,6 @@ AdminUserController();
         isLoading.value = false;
         update();
       }
-      // TODO: implement onInit
-
-      super.onInit();
     }
 
   final _obj = ''.obs;

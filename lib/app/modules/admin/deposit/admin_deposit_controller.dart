@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:leitureca/app/data/models/user_model.dart';
 import 'package:leitureca/app/data/services/deposit_service.dart';
 import 'package:leitureca/app/data/services/user_service.dart';
+import 'package:parse_server_sdk/parse_server_sdk.dart';
 
 class AdminDepositController extends GetxController {
   UserService userService = UserService();
@@ -28,12 +29,29 @@ AdminDepositController();
   void realizarDeposito() async {
     isLoading.value = true;
     int valor = int.parse(valorDeposito.text)+saldo;
-    var response = await depositService.realizarDeposito(id, valor);
-    if(response){
-      Get.snackbar('Depósito realizado com sucesso', 'Saldo atual: $saldo', snackPosition: SnackPosition.BOTTOM);
+    final ParseCloudFunction function = ParseCloudFunction('editUserProperty');
+    final Map<String, dynamic> params = <String, dynamic>{
+      'objectId': id,
+      'newSaldo': valor
+    };
+    final ParseResponse parseResponse =
+        await function.execute(parameters: params);
+    if (parseResponse.success) {
+      print(parseResponse.result);
+      Get.snackbar('Depósito realizado com sucesso', 'Saldo atual: $valor', snackPosition: SnackPosition.BOTTOM);
+      saldo = valor;
     }else{
+      print(parseResponse.error);
       Get.snackbar('Ops.', 'Houve algum problema no depósito, tente novamente mais tarde', snackPosition: SnackPosition.BOTTOM);
     }
+    
+    // int valor = int.parse(valorDeposito.text)+saldo;
+    // var response = await depositService.realizarDeposito(id, valor);
+    // if(response){
+    //   Get.snackbar('Depósito realizado com sucesso', 'Saldo atual: $saldo', snackPosition: SnackPosition.BOTTOM);
+    // }else{
+    //   Get.snackbar('Ops.', 'Houve algum problema no depósito, tente novamente mais tarde', snackPosition: SnackPosition.BOTTOM);
+    // }
     isLoading.value = false;
 
   }

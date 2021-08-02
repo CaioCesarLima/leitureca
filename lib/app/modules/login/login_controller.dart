@@ -18,7 +18,7 @@ class LoginController extends GetxController {
 
   @override
   void onReady() async {
-    UserProvider().islogged();
+    //UserProvider().islogged();
     super.onReady();
   }
 
