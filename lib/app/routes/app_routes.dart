@@ -9,4 +9,5 @@ abstract class Routes {
   static const Deposit = '/admin-deposit';
   static const NEWPRODUCT = '/new-product';
   static const NEWUSER = '/new-user';
+    static const ADMINBUYS = '/admin-buys';
 }

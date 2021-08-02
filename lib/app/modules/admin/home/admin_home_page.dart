@@ -25,7 +25,6 @@ class AdminHomePage extends GetView<AdminHomeController> {
               children: [
                 AdminUserPage(),
                 AdminProductsPage(),
-                AdminDepositPage()
               ],
             ),
             bottomNavigationBar: AdminBottomNavigationbar(),
