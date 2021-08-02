@@ -17,7 +17,7 @@ class SaldoHome extends StatelessWidget {
               IconButton(
                   icon: Icon(Icons.exit_to_app),
                   onPressed: () {
-                    //userController.logout();
+                    _.logout();
                   })
             ],
             title: GetBuilder<UserController>(

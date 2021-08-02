@@ -21,10 +21,8 @@ UserController();
    if(response.success){
      user = null;
      Get.offAllNamed(Routes.LOGIN);
+   }else{
+     Get.offAllNamed(Routes.LOGIN);
    }
   }
-
-  final _obj = ''.obs;
-  set obj(value) => this._obj.value = value;
-  get obj => this._obj.value;
 }
