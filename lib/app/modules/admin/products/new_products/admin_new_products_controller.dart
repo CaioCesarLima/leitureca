@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:leitureca/app/data/services/product_service.dart';
+import 'package:leitureca/utils/parse_errors.dart';
 
 class AdminNewProductsController extends GetxController {
   ProductService productService = ProductService();
@@ -65,7 +66,7 @@ AdminNewProductsController();
         Get.snackbar("Feito!", 'Produto Cadastrado com sucesso', snackPosition: SnackPosition.BOTTOM);
       }
     }catch(e){
-      Get.snackbar("Ops...", e.message, snackPosition: SnackPosition.BOTTOM);
+      Get.snackbar("Ops...", ParseErrors.getDescription(e.code), snackPosition: SnackPosition.BOTTOM);
     }finally{
       isLoading.value = false;
     }
