@@ -14,6 +14,8 @@ import 'package:leitureca/app/modules/home/home_page.dart';
 import 'package:leitureca/app/modules/login/login_bindings.dart';
 import 'package:leitureca/app/modules/login/login_page.dart';
 import 'package:leitureca/app/modules/product/product_page.dart';
+import 'package:leitureca/app/modules/purchase/purchase_bindings.dart';
+import 'package:leitureca/app/modules/purchase/purchase_page.dart';
 import 'package:leitureca/app/modules/splash/splash_bindings.dart';
 import 'package:leitureca/app/modules/splash/splash_page.dart';
 part './app_routes.dart';
@@ -33,6 +35,11 @@ abstract class AppPages {
       name: Routes.HOME,
       page: () => HomePage(),
       binding: HomeBinding(),
+    ),
+    GetPage(
+      name: Routes.PURCHASE,
+      page: () => PurchasePage(),
+      binding: PurchaseBinding(),
     ),
     GetPage(
       name: Routes.LOGIN,

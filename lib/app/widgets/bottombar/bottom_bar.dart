@@ -25,9 +25,15 @@ class BottomNavigationbar extends StatelessWidget {
                 label: "Saldo",
               ),
               BottomNavigationBarItem(
-                  icon: Icon(Icons.shopping_cart_outlined),
-                  label: "Loja",
-                  backgroundColor: Colors.red),
+                icon: Icon(Icons.shopping_cart_outlined),
+                label: "Loja",
+                backgroundColor: Colors.red,
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.money),
+                label: "Compras",
+                backgroundColor: Colors.red,
+              ),
             ],
           );
         });
