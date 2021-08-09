@@ -82,23 +82,30 @@ class ItemCard extends StatelessWidget {
                   child: Container(
                     child: Column(
                       children: [
-                        Image.network(
-                          productModel.urlImage,
-                          height: 150,
+                        Expanded(
+                          child: Container(
+                            child: Image.network(
+                              productModel.urlImage,
+                              fit: BoxFit.cover,
+                            ),
+                          ),
                         ),
                         SizedBox(
                           height: 10,
                         ),
                         Padding(
-                            padding: EdgeInsets.all(10),
-                            child: Text(productModel.name)),
-                        Text("${productModel.price} Leiturecas")
+                            padding: EdgeInsets.all(5),
+                            child: Text(productModel.name, overflow: TextOverflow.clip,)),
+                        Padding(
+                          padding: const EdgeInsets.all(5),
+                          child: Text("${productModel.price} Leiturecas"),
+                        )
                       ],
                     ),
                   ),
                 ),
                 Container(
-                    height: 40,
+                    height: 30,
                     decoration: BoxDecoration(
                         color: Get.theme.primaryColor,
                         borderRadius: BorderRadius.only(
