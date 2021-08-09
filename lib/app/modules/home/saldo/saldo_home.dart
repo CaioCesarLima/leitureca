@@ -53,7 +53,7 @@ class SaldoHome extends StatelessWidget {
                       builder: (_) {
                         print(_.user);
                         return Container(
-                          margin: EdgeInsets.symmetric(horizontal: 150),
+                          margin: EdgeInsets.symmetric(horizontal: 10),
                           padding: EdgeInsets.all(15),
                           decoration: BoxDecoration(
                               color: Colors.deepPurple,
