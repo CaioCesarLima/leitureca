@@ -23,12 +23,12 @@ class ProductPage extends GetView<ProductController> {
               height: 10,
             ),
             Container(
-              height: 300,
+              height: 200,
               child: Image.network(
                   controller.productModel.urlImage),
             ),
             Container(
-              margin: EdgeInsets.all(24),
+              margin: EdgeInsets.all(20),
               child: Center(
                 child: Container(
                   child: Text(
@@ -48,7 +48,7 @@ class ProductPage extends GetView<ProductController> {
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       color: Colors.black87,
-                      fontSize: 24,
+                      fontSize: 16,
                     ),
                   ),
                 ),
@@ -63,7 +63,7 @@ class ProductPage extends GetView<ProductController> {
                     style: TextStyle(
                       color: Colors.black87,
                       fontWeight: FontWeight.bold,
-                      fontSize: 35,
+                      fontSize: 24,
                     ),
                   ),
                 ),
@@ -102,7 +102,7 @@ class ProductPage extends GetView<ProductController> {
                       "Comprar".toUpperCase(),
                       style: TextStyle(
                         color: Colors.white,
-                        fontSize: 24,
+                        fontSize: 20,
                       ),
                     )),
                   ),
