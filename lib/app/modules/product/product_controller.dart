@@ -30,21 +30,21 @@ class ProductController extends GetxController {
   void buyProduct() async {
     buyLoading.value = true;
     DateTime now = DateTime.now();
-    String productID = productModel.id;
-    String userID = userController.user.id;
+    ParseUser parseUser = await ParseUser.currentUser();
+    ParseObject productObject = ParseObject('Product')..set('objectId', productModel.id);
     if (userController.user.saldo > productModel.price) {
       ParseObject purchase = ParseObject('purchase')
-        ..set('productID', productID)
-        ..set('userID', userID)
+        ..set('productID', productObject)
+        ..set('userID', parseUser)
         ..set('date', DateTime(now.year, now.month, now.day))
-        ..set('status', 'Compra realizada');
+        ..set('status', 1);
       try {
         ParseResponse response = await purchase.save();
         if (response.success) {
           int newSaldo = userController.user.saldo - productModel.price; 
           final ParseCloudFunction function = ParseCloudFunction('editUserProperty');
           final Map<String, dynamic> params = <String, dynamic>{
-            'objectId': userID,
+            'objectId': userController.user.id,
             'newSaldo': newSaldo
           };
           final ParseResponse parseResponse =
@@ -62,7 +62,7 @@ class ProductController extends GetxController {
             }
 
           ParseObject productParse = ParseObject('Product')
-          ..objectId = productID
+          ..objectId = productModel.id
           ..set('amount', productModel.amount - 1);
 
           productParse.save();

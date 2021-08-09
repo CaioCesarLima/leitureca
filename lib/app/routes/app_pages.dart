@@ -5,6 +5,8 @@ import 'package:leitureca/app/modules/admin/home/admin_home_bindings.dart';
 import 'package:leitureca/app/modules/admin/home/admin_home_page.dart';
 import 'package:leitureca/app/modules/admin/products/new_products/admin_new_products_bindings.dart';
 import 'package:leitureca/app/modules/admin/products/new_products/admin_new_products_page.dart';
+import 'package:leitureca/app/modules/admin/purchase/admin_purchase_bindings.dart';
+import 'package:leitureca/app/modules/admin/purchase/admin_purchase_page.dart';
 import 'package:leitureca/app/modules/admin/users/newUser/admin_newUSer_bindings.dart';
 import 'package:leitureca/app/modules/admin/users/newUser/admin_newUser_page.dart';
 import 'package:leitureca/app/modules/home/home_binding.dart';
@@ -12,6 +14,8 @@ import 'package:leitureca/app/modules/home/home_page.dart';
 import 'package:leitureca/app/modules/login/login_bindings.dart';
 import 'package:leitureca/app/modules/login/login_page.dart';
 import 'package:leitureca/app/modules/product/product_page.dart';
+import 'package:leitureca/app/modules/purchase/purchase_bindings.dart';
+import 'package:leitureca/app/modules/purchase/purchase_page.dart';
 import 'package:leitureca/app/modules/splash/splash_bindings.dart';
 import 'package:leitureca/app/modules/splash/splash_page.dart';
 part './app_routes.dart';
@@ -31,6 +35,11 @@ abstract class AppPages {
       name: Routes.HOME,
       page: () => HomePage(),
       binding: HomeBinding(),
+    ),
+    GetPage(
+      name: Routes.PURCHASE,
+      page: () => PurchasePage(),
+      binding: PurchaseBinding(),
     ),
     GetPage(
       name: Routes.LOGIN,
@@ -56,6 +65,11 @@ abstract class AppPages {
       name: Routes.NEWUSER,
       page: () => AdminNewUserPage(),
       binding: AdminNewUserBinding(),
+    ),
+    GetPage(
+      name: Routes.ADMINBUYS,
+      page: () => AdminPurchasePage(),
+      binding: AdminPurchaseBinding(),
     ),
   ];
 }
