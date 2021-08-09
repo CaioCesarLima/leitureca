@@ -3,7 +3,7 @@ import 'package:leitureca/app/data/models/user_model.dart';
 
 class PurchaseModel{
   final String id;
-  final String status;
+  final int status;
   final ProductModel purchaseProduct;
   final UserModel purchaseUser;
 
@@ -12,8 +12,8 @@ class PurchaseModel{
   factory PurchaseModel.fromParse(response){
     return PurchaseModel(
     status : response['status'],
-    purchaseProduct : response['productID'],
-    purchaseUser : response['productID'],
+    purchaseProduct : ProductModel.fromParse(response['productID']),
+    purchaseUser : UserModel.fromParse(response['productID']),
     id: response['objectId'],
     );
   }

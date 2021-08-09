@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:leitureca/app/modules/home/saldo/saldo_home.dart';
+import 'package:leitureca/app/modules/purchase/purchase_page.dart';
 import 'package:leitureca/app/modules/shopping/shopping_home.dart';
 import 'package:leitureca/app/user_controller.dart';
 
@@ -28,6 +29,13 @@ class HomePage extends GetView<HomeController> {
                   },
                 ),
                 ShoppingHome(),
+                GetBuilder<UserController>(
+                  init: Get.find<UserController>(),
+                  initState: (_) {},
+                  builder: (_) {
+                    return PurchasePage();
+                  },
+                ),
               ],
             ),
             bottomNavigationBar: BottomNavigationbar(),

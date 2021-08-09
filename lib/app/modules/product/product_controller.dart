@@ -37,7 +37,7 @@ class ProductController extends GetxController {
         ..set('productID', productObject)
         ..set('userID', parseUser)
         ..set('date', DateTime(now.year, now.month, now.day))
-        ..set('status', 'Compra realizada');
+        ..set('status', 1);
       try {
         ParseResponse response = await purchase.save();
         if (response.success) {
