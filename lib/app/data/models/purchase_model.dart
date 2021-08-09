@@ -3,7 +3,7 @@ import 'package:leitureca/app/data/models/user_model.dart';
 
 class PurchaseModel{
   final String id;
-  final int status;
+  int status;
   final ProductModel purchaseProduct;
   final UserModel purchaseUser;
 
