@@ -30,7 +30,18 @@ AdminUserController();
       }
     }
 
-  final _obj = ''.obs;
-  set obj(value) => this._obj.value = value;
-  get obj => this._obj.value;
+    Future<void> searchUser(String search) async {
+      isLoading.value = true;
+      users = [];
+      update();
+      try{
+        users = await userService.searchUser(search);
+      }catch(e){
+        print(e);
+      }finally{
+        isLoading.value = false;
+        update();
+      }
+    }
+
 }

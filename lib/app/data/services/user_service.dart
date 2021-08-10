@@ -46,4 +46,18 @@ class UserService{
         return Future.error(response.error);
       }
   }
+
+  Future<List<UserModel>> searchUser(String search) async {
+    QueryBuilder<ParseUser> queryUsers =
+        QueryBuilder<ParseUser>(ParseUser.forQuery());
+    queryUsers.whereContains('name', search);
+     var apiResponse = await queryUsers.query();
+
+    if(apiResponse.success){
+      print(apiResponse.results);
+      return apiResponse.results.map((e) => UserModel.fromParse(e)).toList();
+    }else{
+      return Future.error(apiResponse.error);
+    }
+  }
 }
