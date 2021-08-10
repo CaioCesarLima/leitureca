@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:leitureca/app/modules/admin/deposit/admin_deposit_page.dart';
 import 'package:leitureca/app/modules/admin/home/admin_home_controller.dart';
 import 'package:leitureca/app/modules/admin/products/admin_products_page.dart';
+import 'package:leitureca/app/modules/admin/purchase/admin_purchase_page.dart';
 import 'package:leitureca/app/modules/admin/users/admin_user_page.dart';
 import 'package:leitureca/app/user_controller.dart';
 import 'package:leitureca/app/widgets/adminBottombar/admin_bottom_bar.dart';
@@ -25,6 +26,7 @@ class AdminHomePage extends GetView<AdminHomeController> {
               children: [
                 AdminUserPage(),
                 AdminProductsPage(),
+                AdminPurchasePage()
               ],
             ),
             bottomNavigationBar: AdminBottomNavigationbar(),

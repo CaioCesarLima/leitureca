@@ -8,6 +8,7 @@ import 'package:leitureca/app/user_controller.dart';
 // ignore: must_be_immutable
 class AdminUserPage extends GetView<AdminUserController> {
   UserController userController = Get.find<UserController>();
+  TextEditingController search = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -37,12 +38,13 @@ class AdminUserPage extends GetView<AdminUserController> {
                           Container(
                             margin: EdgeInsets.all(10),
                             child: TextField(
+                              controller: search,
                               decoration: InputDecoration(
                                   suffixIcon: Padding(
                                     padding: const EdgeInsets.only(right: 25),
                                     child: GestureDetector(
                                       onTap: () {
-                                        print("Busca realizada");
+                                        _. searchUser(search.text);
                                       },
                                       child: Icon(Icons.search),
                                     ),
