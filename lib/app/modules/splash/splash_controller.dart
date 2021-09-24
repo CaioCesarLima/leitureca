@@ -5,16 +5,17 @@ import 'package:leitureca/app/routes/app_pages.dart';
 class SplashController extends GetxController {
   UserProvider userProvider = UserProvider();
 
-SplashController();
+  SplashController();
 
   @override
-    void onReady() {
-      print('splash');
-      checkUserLogged();  
-      
-      super.onReady();
-    }
-  void checkUserLogged()async{
+  void onReady() {
+    print('splash');
+    checkUserLogged();
+
+    super.onReady();
+  }
+
+  void checkUserLogged() async {
     //UserModel islogged = await userProvider.islogged();
     // Get.find<UserController>().user = islogged;
     // if(islogged != null){
@@ -22,6 +23,6 @@ SplashController();
     // } else{
     //   Get.offNamed(Routes.ADMINHOME);
     // }
-    Get.offNamed(Routes.ADMINHOME);
+    Get.offNamed(Routes.LOGIN);
   }
 }
