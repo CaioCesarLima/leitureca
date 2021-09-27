@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:leitureca/app/modules/login/login_controller.dart';
 
@@ -21,9 +22,15 @@ class LoginPage extends GetView<LoginController> {
                       children: [
                         Padding(
                           padding: const EdgeInsets.only(top: 24),
-                          child: Image.asset(
-                            'img/undraw_education_f8ru.png',
-                            height: 200,
+                          // child: Image.asset(
+                          //   'img/undraw_education_f8ru.png',
+                          //   height: 200,
+                          // ),
+                          child: Container(
+                            width: 300,
+                            height: 100,
+                            child: SvgPicture.asset('assets/img/undraw_education_f8ru.svg',
+                            ),
                           ),
                         ),
                         Padding(
